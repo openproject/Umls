@@ -1,0 +1,20 @@
+@startuml
+
+interface Product {
+    +playAudio()
+}
+class ConcreteFactory {
+    +create(String type)
+}
+class ConcreteProductA
+class ConcreteProductB
+
+Product <|-- ConcreteProductA
+Product <|-- ConcreteProductB
+
+ConcreteFactory ..> Product
+ConcreteFactory ..> ConcreteProductA
+ConcreteFactory ..> ConcreteProductB
+
+note right of ConcreteFactory: [意图]\n定义一个用于创建对象的接口，\n参数化实例化哪个类。
+@enduml
