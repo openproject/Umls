@@ -1,0 +1,8 @@
+@startuml
+
+class Singleton {
+    -instance
+    +getInstance()
+}
+note right of Singleton: return unique instance
+@enduml

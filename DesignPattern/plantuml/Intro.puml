@@ -1,0 +1,32 @@
+@startuml
+
+class ParentA
+class ChildA
+ParentA <|-- ChildA: 泛化
+note on link: 实线空心箭头
+
+interface InterfaceB
+class ClassB
+InterfaceB <|.. ClassB:实现
+note on link: 虚线空心箭头
+
+class TeacherC
+class StudentC
+Class CauseC
+TeacherC "n" -- "n" StudentC:双向关联
+note on link:老师有多名学生，\n学生有多名老师
+StudentC "1" --> "n" CauseC:单向关联
+note on link:学生修多门课程，\n但是课程不应该关联学生
+
+class CarD
+class EngineD
+CarD "1" o-- "n" EngineD: 聚合
+note on link:强关系，整体和部分\n部分可以离开整体单独存在
+
+class CompanyE
+class DepartmentE
+CompanyE "1" *-- "n" DepartmentE: 组合
+note on link:强关系，整体和部分\n部分不能离开整体
+
+
+@enduml

@@ -1,0 +1,26 @@
+@startuml
+
+interface Factory {
+    +createA():ProductA
+    +createB():ProductB
+}
+interface ProductA {
+    +playAudio()
+}
+interface ProductB {
+    +playMovie()
+}
+class ConcreteFactory
+class ConcreteProductA
+class ConcreteProductB
+
+Factory <|-- ConcreteFactory
+ProductA <|-- ConcreteProductA
+ProductB <|-- ConcreteProductB
+Factory ..> ProductA
+Factory ..> ProductB
+ConcreteFactory ..> ConcreteProductA
+ConcreteFactory ..> ConcreteProductB
+
+note right of Factory: [意图]\n提供一个创建一系列相关或相互依赖对象的接口，\n而无需指定它们具体的类。
+@enduml
